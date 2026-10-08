@@ -69,6 +69,8 @@
 .page-title p{color:var(--fg-dim);margin:0}
 
 .site-footer{
+  display:none;
+}
   border-top:1px solid var(--line);
   padding:2rem 0;color:var(--fg-dimmer);
   font-size:.88rem;text-align:center;
