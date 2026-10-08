@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — CheckForCheats</title>
+<link rel="icon" href="../assets/icons/favicon.ico">
+<link rel="manifest" href="../assets/manifest.json">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="dot"></span> CheckForCheats
+    </a>
+    <button class="nav-toggle" aria-label="Меню" onclick="toggleTabs(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="tabs" id="tabs">
+      <a class="tab" href="../index.html">Главная</a>
+      <a class="tab active" href="faq.html">FAQ</a>
+      <a class="tab" href="commands.html">Команды</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="page">
+    <div class="faq-title">
+      <h1>Частые вопросы</h1>
+      <p>Всё, что нужно знать перед проверкой</p>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Безопасно ли это для ПК?</span>
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Да. Проверка не изменяет файлы, не трогает реестр и не остаётся в системе. Все команды — только чтение данных о процессах и обновлениях. После завершения на компьютере не остаётся никаких следов работы.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Как проходит проверка?</span>
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Ты открываешь PowerShell от имени администратора, вводишь пароль на вкладке «Команды» и копируешь нужную команду. Она собирает данные о запущенных процессах, правах пользователя и установленных обновлениях. Результат выводится прямо в консоль — его видно сразу, без установки дополнительного софта.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Для чего нужна проверка через сайт?</span>
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Сайт — это удобная точка входа: он выдаёт готовые команды по паролю, чтобы не искать их вручную и не ошибиться в синтаксисе. Проверка через сайт даёт единый стандарт для всех, кто проходит сканирование — одинаковые шаги, одинаковый результат, понятный отчёт.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> CheckForCheats. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/faq.js"></script>
+
+</body>
+</html>

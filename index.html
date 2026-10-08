@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheckForCheats</title>
+<link rel="icon" href="assets/icons/favicon.ico">
+<link rel="manifest" href="assets/manifest.json">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="dot"></span> CheckForCheats
+    </a>
+    <button class="nav-toggle" aria-label="Меню" onclick="toggleTabs(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="tabs" id="tabs">
+      <a class="tab active" href="index.html">Главная</a>
+      <a class="tab" href="pages/faq.html">FAQ</a>
+      <a class="tab" href="pages/commands.html">Команды</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="badge">Добавлен новый античит движок <b class="badge-accent">3.2.1</b></span>
+    <h1>Проверка системы<br>на <span class="accent">сторонний софт</span></h1>
+    <p class="lead">Быстрая диагностика процессов, модулей и автозапуска. Результат — мгновенно, без установки клиента.</p>
+    <a class="btn" href="pages/commands.html">Начать проверку</a>
+  </section>
+
+  <section class="reasons">
+    <div class="reason">
+      <div class="num">01</div>
+      <h3>Более 100 успешных проверок</h3>
+      <p>Система работает стабильно. Каждая проверка — точный результат без ложных срабатываний.</p>
+    </div>
+    <div class="reason">
+      <div class="num">02</div>
+      <h3>Экосистема</h3>
+      <p>Мы проверяем Minecraft, Counter-Strike 2 и Rust — полный охват популярных игровых платформ.</p>
+    </div>
+    <div class="reason">
+      <div class="num">03</div>
+      <h3>Легко</h3>
+      <p>Проверка занимает меньше 30 секунд. Одна команда — и отчёт готов.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> CheckForCheats. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

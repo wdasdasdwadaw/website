@@ -1,0 +1,16 @@
+{
+  "name": "CheckForCheats",
+  "short_name": "CFC",
+  "description": "Проверка системы на сторонний софт",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0f",
+  "theme_color": "#00e5ff",
+  "icons": [
+    {
+      "src": "/assets/icons/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
